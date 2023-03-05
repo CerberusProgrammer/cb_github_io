@@ -1,4 +1,5 @@
 import 'package:cb_github_io/about_me.dart';
+import 'package:cb_github_io/main.dart';
 import 'package:cb_github_io/work.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -75,7 +76,14 @@ class _Home extends State<StatefulWidget> {
                           'Omar Flores',
                           style: TextStyle(fontSize: 28),
                         ),
-                        Row(children: socialMediaButtons)
+                        Card(
+                            elevation: 10,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.network(
+                                    'https://avatars.githubusercontent.com/u/66286300?v=4',
+                                    scale: 4))),
+                        Row(children: socialMediaButtons),
                       ],
                     )
                   : null,
