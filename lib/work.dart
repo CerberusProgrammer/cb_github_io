@@ -1,4 +1,3 @@
-import 'package:cb_github_io/content.dart';
 import 'package:flutter/material.dart';
 
 class Work extends StatelessWidget {
@@ -6,46 +5,68 @@ class Work extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-            child: Card(
-          elevation: 10,
-          child: Stack(children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    'https://cdn.pixabay.com/photo/2017/04/19/13/03/coffee-2242213_960_720.jpg',
-                  ),
-                )),
-              ),
-            ),
-          ]),
-        )),
-        Text('My projects'),
-        Expanded(
-            child: SafeArea(
-                child: Card(
-          elevation: 10,
-          child: Ink(
-            child: InkWell(
-              child: Column(
+    return LayoutBuilder(builder: (context, constrains) {
+      return ListView(
+        padding: const EdgeInsets.all(5),
+        children: [
+          Card(
+              elevation: 10,
+              child: Stack(
+                alignment: AlignmentDirectional.center,
                 children: [
-                  Expanded(child: Image.network(random)),
-                  Text('Title Work 1'),
-                  Text('Subtitle Work 1'),
+                  SizedBox(
+                    width: constrains.maxWidth,
+                    height: constrains.maxWidth >= 600
+                        ? constrains.maxHeight / 3
+                        : constrains.maxHeight / 4,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(
+                        'https://cdn.pixabay.com/photo/2017/04/19/13/03/coffee-2242213_960_720.jpg',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      constrains.maxWidth >= 330
+                          ? const Text(
+                              'SazarCode',
+                              style: TextStyle(fontSize: 64, shadows: [
+                                Shadow(offset: Offset(1, 1), blurRadius: 2)
+                              ]),
+                            )
+                          : const Text(
+                              'SC',
+                              style: TextStyle(fontSize: 64, shadows: [
+                                Shadow(offset: Offset(1, 1), blurRadius: 2)
+                              ]),
+                            ),
+                      constrains.maxWidth >= 600
+                          ? const Padding(
+                              padding: EdgeInsets.only(left: 20, right: 20),
+                              child: Text(
+                                  'Lorem ipsum dolor sit amet, consectet Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+                            )
+                          : const Text(''),
+                    ],
+                  ),
                 ],
-              ),
-              onTap: () {},
-            ),
+              )),
+          const Text(
+            'My projects',
+            style: TextStyle(fontSize: 48),
           ),
-        ))),
-      ],
-    );
+          Row(
+            children: [
+              Card(
+                child: Text('data'),
+                elevation: 10,
+              )
+            ],
+          )
+        ],
+      );
+    });
   }
 }
