@@ -1,5 +1,4 @@
 import 'package:cb_github_io/about_me.dart';
-import 'package:cb_github_io/test.dart';
 import 'package:cb_github_io/work.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -88,7 +87,9 @@ class _Home extends State<StatefulWidget> {
                 NavigationRailDestination(
                     icon: Icon(Icons.home), label: Text('Home')),
                 NavigationRailDestination(
-                    icon: Icon(Icons.person), label: Text('About Me'))
+                    icon: Icon(Icons.person), label: Text('About Me')),
+                NavigationRailDestination(
+                    icon: Icon(Icons.work), label: Text('Projects'))
               ],
               selectedIndex: selectedIndex,
               onDestinationSelected: (value) {
