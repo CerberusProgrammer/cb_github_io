@@ -1,12 +1,12 @@
 import 'package:cb_github_io/content.dart';
 import 'package:flutter/material.dart';
 
-class Work extends StatelessWidget {
-  const Work({super.key});
+class Test extends StatelessWidget {
+  const Test({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Expanded(
             child: Card(
@@ -28,23 +28,6 @@ class Work extends StatelessWidget {
           ]),
         )),
         Text('My projects'),
-        Expanded(
-            child: SafeArea(
-                child: Card(
-          elevation: 10,
-          child: Ink(
-            child: InkWell(
-              child: Column(
-                children: [
-                  Expanded(child: Image.network(random)),
-                  Text('Title Work 1'),
-                  Text('Subtitle Work 1'),
-                ],
-              ),
-              onTap: () {},
-            ),
-          ),
-        ))),
       ],
     );
   }

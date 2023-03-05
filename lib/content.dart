@@ -18,3 +18,6 @@ Si tienes alguna pregunta sobre mis proyectos o necesitas ayuda en alguna área 
 Puedes enviarme un mensaje aquí en GitHub o encontrarme en LinkedIn.
 ¡Gracias por visitar mi perfil de GitHub!
 ''';
+
+const String random =
+    'https://github.com/deniscolak/colorize-text-avatar/raw/master/example/screenshots/img_1.png';

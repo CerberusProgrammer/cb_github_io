@@ -1,6 +1,5 @@
 import 'package:cb_github_io/about_me.dart';
-import 'package:cb_github_io/main.dart';
-import 'package:cb_github_io/work.dart';
+import 'package:cb_github_io/test.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,7 +14,7 @@ class Home extends StatefulWidget {
 class _Home extends State<StatefulWidget> {
   int selectedIndex = 0;
 
-  List<Widget> pages = [const Work(), const AboutMe()];
+  List<Widget> pages = [const Test(), const AboutMe()];
   List<Widget> socialMediaButtons = [
     IconButton(
         onPressed: () async {
@@ -63,6 +62,7 @@ class _Home extends State<StatefulWidget> {
           children: [
             SafeArea(
                 child: NavigationRail(
+              elevation: 10,
               extended: constrains.maxWidth >= 600,
               trailing: constrains.maxWidth <= 600
                   ? Column(
@@ -72,10 +72,6 @@ class _Home extends State<StatefulWidget> {
               leading: constrains.maxWidth >= 600
                   ? Column(
                       children: [
-                        const Text(
-                          'Omar Flores',
-                          style: TextStyle(fontSize: 28),
-                        ),
                         Card(
                             elevation: 10,
                             child: ClipRRect(
@@ -101,10 +97,7 @@ class _Home extends State<StatefulWidget> {
               },
             )),
             Expanded(
-              child: Container(
-                color: Theme.of(context).colorScheme.primaryContainer,
-                child: pages[selectedIndex],
-              ),
+              child: pages[selectedIndex],
             )
           ],
         ),
