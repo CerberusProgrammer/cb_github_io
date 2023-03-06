@@ -6,6 +6,73 @@ class Work extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constrains) {
+      List<Widget> projects = [
+        Expanded(
+          child: Card(
+            child: SizedBox(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    'https://scontent.fmxl1-1.fna.fbcdn.net/v/t39.30808-6/291813399_454199063378276_6563740446080050879_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEnA2cLaD0pomTT-S6H4HM1pfVSNqfcRoGl9VI2p9xGgS_UH9Lu2Pljy8rWYLGTBS8&_nc_ohc=4sJp1ZXZ8oYAX-zHNl7&_nc_ht=scontent.fmxl1-1.fna&oh=00_AfCVsIQrfZgfda8XM2p-INm2E57xVQiyC9OUeaVQnTuTFw&oe=6409392E',
+                    fit: BoxFit.cover,
+                    width: constrains.maxWidth,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    'Inspire Me',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                      'A minimal app for inspire all that persons that feels frustration.'),
+                )
+              ],
+            )),
+          ),
+        ),
+        Expanded(
+          child: Card(
+            child: SizedBox(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                      'https://p7t2r7c4.stackpathcdn.com/wp-content/uploads/2020/04/bujo-doodle-with-paper-theme.jpg'),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    'Notes',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text('Add notes faster with a minimal app.'),
+                )
+              ],
+            )),
+          ),
+        ),
+        Expanded(
+          child: Card(
+            child: SizedBox(
+                child: Column(
+              children: const [Text('Weight Tracker')],
+            )),
+          ),
+        ),
+      ];
+
       return ListView(
         padding: const EdgeInsets.all(5),
         children: [
@@ -57,74 +124,11 @@ class Work extends StatelessWidget {
             'My projects',
             style: TextStyle(fontSize: 48),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Card(
-                  child: SizedBox(
-                      child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(
-                          'https://scontent.fmxl1-1.fna.fbcdn.net/v/t39.30808-6/291813399_454199063378276_6563740446080050879_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeEnA2cLaD0pomTT-S6H4HM1pfVSNqfcRoGl9VI2p9xGgS_UH9Lu2Pljy8rWYLGTBS8&_nc_ohc=4sJp1ZXZ8oYAX-zHNl7&_nc_ht=scontent.fmxl1-1.fna&oh=00_AfCVsIQrfZgfda8XM2p-INm2E57xVQiyC9OUeaVQnTuTFw&oe=6409392E',
-                          fit: BoxFit.cover,
-                          width: constrains.maxWidth,
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          'Inspire Me',
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                            'A minimal app for inspire all that persons that feels frustration.'),
-                      )
-                    ],
-                  )),
-                ),
-              ),
-              Expanded(
-                child: Card(
-                  child: SizedBox(
-                      child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(
-                            'https://p7t2r7c4.stackpathcdn.com/wp-content/uploads/2020/04/bujo-doodle-with-paper-theme.jpg'),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Text(
-                          'Notes',
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Text('Add notes faster with a minimal app.'),
-                      )
-                    ],
-                  )),
-                ),
-              ),
-              Expanded(
-                child: Card(
-                  child: SizedBox(
-                      child: Column(
-                    children: [Text('Weight Tracker')],
-                  )),
-                ),
-              ),
-            ],
-          )
+          constrains.maxWidth >= 600
+              ? Row(
+                  children: projects,
+                )
+              : projects[0],
         ],
       );
     });
